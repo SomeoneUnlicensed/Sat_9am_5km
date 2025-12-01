@@ -1,0 +1,11 @@
+<%= form_with url: admin_utilities_export_activities_csv_path do |f| %>
+  <div style="margin-bottom: 12px">
+    <%= f.label :date_from, 'Дата с' %>
+    <%= f.date_field :date_from, value: 1.year.ago.to_date %>
+  </div>
+  <div style="margin-bottom: 12px">
+    <%= f.label :date_to, 'Дата по' %>
+    <%= f.date_field :date_to, value: Date.current %>
+  </div>
+  <%= f.submit 'Экспортировать', data: { confirm: 'Запустить задачу на создание и отправку отчёта?' } %>
+<% end %>

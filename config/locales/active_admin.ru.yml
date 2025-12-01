@@ -13,8 +13,21 @@ ru:
         cannot_delete_participant: 'Действие отменено. Нельзя удалить участника, имеющего результаты!'
     utilities:
       reports:
+        title: Отчёты
         task_queued: 'Задача на создание файла поставлена в очередь. Ждите отчёт в Telegram.'
         event_not_selected: 'Мероприятие не выбрано'
+        event_export_title: Выгрузка данных по выбранному мероприятию
+        event_export_description: Будет сформирован CSV файл с отчётом по всем результатам и волонтёрствам на выбранном мероприятии.
+        athletes_export_title: Экспорт участников
+        athletes_export_description: Выгрузка всех участников с их статистикой (количество забегов и волонтёрств).
+        results_export_title: Экспорт результатов
+        results_export_description: Выгрузка результатов забегов за выбранный период.
+        volunteers_export_title: Экспорт волонтёрств
+        volunteers_export_description: Выгрузка волонтёрств за выбранный период.
+        activities_export_title: Экспорт забегов
+        activities_export_description: Выгрузка информации о забегах за выбранный период.
+        clubs_export_title: Экспорт клубов
+        clubs_export_description: Выгрузка всех клубов со статистикой.
       cache:
         clear_success: 'Кэш успешно очищен!'
         clear_failed: 'Отмена! Кеш недавно уже был очищен. Повторите запрос позже.'
@@ -229,6 +242,8 @@ ru:
     page:
       index:
         utilities: Инструменты
+        reports:
+          title: Отчёты
         analytics:
           title: 'Аналитика'
         cache_clear:
