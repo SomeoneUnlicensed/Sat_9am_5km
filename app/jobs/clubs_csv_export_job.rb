@@ -27,7 +27,7 @@ class ClubsCsvExportJob < ApplicationJob
         csv << [
           club.id,
           club.name,
-          club.country.code,
+          club.country_code,
           club.athletes_count,
           club.results_count,
           club.volunteering_count
@@ -41,14 +41,13 @@ class ClubsCsvExportJob < ApplicationJob
   def clubs_with_stats
     Club
       .joins(:country)
-      .left_joins(:athletes)
+      .left_joins(athletes: [:results, :volunteering])
       .select(
         'clubs.id, clubs.name, countries.code AS country_code',
         'COUNT(DISTINCT athletes.id) AS athletes_count',
-        '(SELECT COUNT(*) FROM results r JOIN athletes a ON r.athlete_id = a.id WHERE a.club_id = clubs.id) AS results_count',
-        '(SELECT COUNT(*) FROM volunteers v JOIN athletes a ON v.athlete_id = a.id WHERE a.club_id = clubs.id) AS volunteering_count'
+        'COUNT(DISTINCT results.id) AS results_count',
+        'COUNT(DISTINCT volunteers.id) AS volunteering_count'
       )
-      .includes(:country)
       .group('clubs.id, countries.code')
       .order('clubs.name')
   end
@@ -56,7 +55,7 @@ class ClubsCsvExportJob < ApplicationJob
   def multipart_form_data(file)
     [
       ['document', file, { filename: "clubs_#{Time.zone.now.to_i}.csv", content_type: 'text/csv' }],
-      ['caption', 'Экспорт клубов'],
+      ['caption', I18n.t('admin.utilities.reports.clubs_export_caption')],
       ['chat_id', @user.telegram_id.to_s]
     ]
   end

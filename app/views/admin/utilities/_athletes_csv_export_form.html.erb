@@ -1,3 +1,3 @@
 <%= form_with url: admin_utilities_export_athletes_csv_path do |f| %>
-  <%= f.submit 'Экспортировать', data: { confirm: 'Запустить задачу на создание и отправку отчёта?' } %>
+  <%= f.submit t('admin.utilities.reports.export_button'), data: { confirm: t('admin.utilities.reports.export_confirm') } %>
 <% end %>

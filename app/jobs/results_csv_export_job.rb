@@ -56,7 +56,7 @@ class ResultsCsvExportJob < ApplicationJob
   def multipart_form_data(file)
     [
       ['document', file, { filename: "results_#{@date_from}_#{@date_to}.csv", content_type: 'text/csv' }],
-      ['caption', "Экспорт результатов за период #{@date_from} - #{@date_to}"],
+      ['caption', I18n.t('admin.utilities.reports.results_export_caption', date_from: @date_from, date_to: @date_to)],
       ['chat_id', @user.telegram_id.to_s]
     ]
   end

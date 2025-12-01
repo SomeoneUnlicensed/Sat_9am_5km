@@ -20,14 +20,23 @@ sr:
         event_export_description: Biće kreiran CSV fajl sa izveštajem o svim rezultatima i volontiranjima na izabranom događaju.
         athletes_export_title: Eksport učesnika
         athletes_export_description: Eksport svih učesnika sa njihovom statistikom (broj trčanja i volontiranja).
+        athletes_export_caption: Eksport učesnika
         results_export_title: Eksport rezultata
         results_export_description: Eksport rezultata trčanja za izabrani period.
+        results_export_caption: 'Eksport rezultata za period %{date_from} - %{date_to}'
         volunteers_export_title: Eksport volontiranja
         volunteers_export_description: Eksport volontiranja za izabrani period.
+        volunteers_export_caption: 'Eksport volontiranja za period %{date_from} - %{date_to}'
         activities_export_title: Eksport trčanja
         activities_export_description: Eksport informacija o trčanjima za izabrani period.
+        activities_export_caption: 'Eksport trčanja za period %{date_from} - %{date_to}'
         clubs_export_title: Eksport klubova
         clubs_export_description: Eksport svih klubova sa statistikom.
+        clubs_export_caption: Eksport klubova
+        date_from: Datum od
+        date_to: Datum do
+        export_button: Eksportuj
+        export_confirm: Pokrenuti zadatak za kreiranje i slanje izveštaja?
       cache:
         clear_success: 'Keš uspešno očišćen!'
         clear_failed: 'Otkazano! Keš je nedavno već bio očišćen. Pokušajte ponovo kasnije.'

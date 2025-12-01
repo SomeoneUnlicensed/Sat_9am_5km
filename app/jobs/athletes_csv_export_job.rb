@@ -22,19 +22,19 @@ class AthletesCsvExportJob < ApplicationJob
   def generate_csv
     tempfile = Tempfile.new
     CSV.open(tempfile.path, 'w') do |csv|
-      csv << %w[id name club_id event_id male parkrun_code fiveverst_code runpark_code results_count volunteering_count]
-      Athlete.includes(:club, :event).find_each do |athlete|
+      csv << %w[id name club event male parkrun_code fiveverst_code runpark_code results_count volunteering_count]
+      athletes_with_stats.find_each do |athlete|
         csv << [
           athlete.id,
           athlete.name,
-          athlete.club&.name,
-          athlete.event&.name,
+          athlete.club_name,
+          athlete.event_name,
           athlete.male,
           athlete.parkrun_code,
           athlete.fiveverst_code,
           athlete.runpark_code,
-          athlete.results.count,
-          athlete.volunteering.count
+          athlete.results_count,
+          athlete.volunteering_count
         ]
       end
     end
@@ -42,10 +42,22 @@ class AthletesCsvExportJob < ApplicationJob
     tempfile
   end
 
+  def athletes_with_stats
+    Athlete
+      .left_joins(:club, :event)
+      .select(
+        'athletes.*',
+        'clubs.name AS club_name',
+        'events.name AS event_name',
+        '(SELECT COUNT(*) FROM results WHERE results.athlete_id = athletes.id) AS results_count',
+        '(SELECT COUNT(*) FROM volunteers WHERE volunteers.athlete_id = athletes.id) AS volunteering_count'
+      )
+  end
+
   def multipart_form_data(file)
     [
       ['document', file, { filename: "athletes_#{Time.zone.now.to_i}.csv", content_type: 'text/csv' }],
-      ['caption', 'Экспорт участников'],
+      ['caption', I18n.t('admin.utilities.reports.athletes_export_caption')],
       ['chat_id', @user.telegram_id.to_s]
     ]
   end

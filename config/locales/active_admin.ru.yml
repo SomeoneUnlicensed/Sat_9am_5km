@@ -20,14 +20,23 @@ ru:
         event_export_description: Будет сформирован CSV файл с отчётом по всем результатам и волонтёрствам на выбранном мероприятии.
         athletes_export_title: Экспорт участников
         athletes_export_description: Выгрузка всех участников с их статистикой (количество забегов и волонтёрств).
+        athletes_export_caption: Экспорт участников
         results_export_title: Экспорт результатов
         results_export_description: Выгрузка результатов забегов за выбранный период.
+        results_export_caption: 'Экспорт результатов за период %{date_from} - %{date_to}'
         volunteers_export_title: Экспорт волонтёрств
         volunteers_export_description: Выгрузка волонтёрств за выбранный период.
+        volunteers_export_caption: 'Экспорт волонтёрств за период %{date_from} - %{date_to}'
         activities_export_title: Экспорт забегов
         activities_export_description: Выгрузка информации о забегах за выбранный период.
+        activities_export_caption: 'Экспорт забегов за период %{date_from} - %{date_to}'
         clubs_export_title: Экспорт клубов
         clubs_export_description: Выгрузка всех клубов со статистикой.
+        clubs_export_caption: Экспорт клубов
+        date_from: Дата с
+        date_to: Дата по
+        export_button: Экспортировать
+        export_confirm: Запустить задачу на создание и отправку отчёта?
       cache:
         clear_success: 'Кэш успешно очищен!'
         clear_failed: 'Отмена! Кеш недавно уже был очищен. Повторите запрос позже.'
