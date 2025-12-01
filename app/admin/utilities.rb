@@ -5,10 +5,35 @@ ActiveAdmin.register_page 'Utilities' do
 
   content title: proc { t '.utilities' } do
     tabs do
-      tab 'Отчёты' do
-        panel 'Выгрузка данных по выбранному мероприятию' do
-          para 'Будет сформирован CSV файл с отчётом по всем результатам и волонтёрствам на выбранном мероприятии.'
+      tab t('.reports.title') do
+        panel t('.reports.event_export_title') do
+          para t('.reports.event_export_description')
           render partial: 'event_csv_export_form'
+        end
+
+        panel t('.reports.athletes_export_title') do
+          para t('.reports.athletes_export_description')
+          render partial: 'athletes_csv_export_form'
+        end
+
+        panel t('.reports.results_export_title') do
+          para t('.reports.results_export_description')
+          render partial: 'results_csv_export_form'
+        end
+
+        panel t('.reports.volunteers_export_title') do
+          para t('.reports.volunteers_export_description')
+          render partial: 'volunteers_csv_export_form'
+        end
+
+        panel t('.reports.activities_export_title') do
+          para t('.reports.activities_export_description')
+          render partial: 'activities_csv_export_form'
+        end
+
+        panel t('.reports.clubs_export_title') do
+          para t('.reports.clubs_export_description')
+          render partial: 'clubs_csv_export_form'
         end
       end
 
@@ -115,6 +140,42 @@ ActiveAdmin.register_page 'Utilities' do
     else
       flash[:alert] = t '.reports.event_not_selected'
     end
+    redirect_to admin_utilities_path
+  end
+
+  page_action :export_athletes_csv, method: :post do
+    AthletesCsvExportJob.perform_later(current_user.id)
+    flash[:notice] = t '.reports.task_queued'
+    redirect_to admin_utilities_path
+  end
+
+  page_action :export_results_csv, method: :post do
+    date_from = params[:date_from].presence
+    date_to = params[:date_to].presence
+    ResultsCsvExportJob.perform_later(current_user.id, date_from, date_to)
+    flash[:notice] = t '.reports.task_queued'
+    redirect_to admin_utilities_path
+  end
+
+  page_action :export_volunteers_csv, method: :post do
+    date_from = params[:date_from].presence
+    date_to = params[:date_to].presence
+    VolunteersCsvExportJob.perform_later(current_user.id, date_from, date_to)
+    flash[:notice] = t '.reports.task_queued'
+    redirect_to admin_utilities_path
+  end
+
+  page_action :export_activities_csv, method: :post do
+    date_from = params[:date_from].presence
+    date_to = params[:date_to].presence
+    ActivitiesCsvExportJob.perform_later(current_user.id, date_from, date_to)
+    flash[:notice] = t '.reports.task_queued'
+    redirect_to admin_utilities_path
+  end
+
+  page_action :export_clubs_csv, method: :post do
+    ClubsCsvExportJob.perform_later(current_user.id)
+    flash[:notice] = t '.reports.task_queued'
     redirect_to admin_utilities_path
   end
 end

@@ -15,6 +15,17 @@ sr:
         description: Da bi se prijavili, koristite email i lozinku ili Telegram bot. Potrebno je samo da zatražite jednokratnu vezu za prijavu u botu komandom /login
         registration_html: 'Registrujte se pomoću <a href="%{link}" target="_blank" rel="noopener">Telegram bota</a>'
         telegram_login_html: 'Ako ste već registrovan, možete dobiti jednokratnu vezu za prijavu u <a href="%{link}" class="text-reset" target="_blank">Telegram botu</a> pomoću komande <code>/login</code>'
+        s95_login_title: Prijava putem S95 ID
+        s95_login_description: Unesite vaš S95 ID (ili parkrun/5 verst/RunPark ID) i lozinku naloga
+        s95_id_label: S95 ID
+        s95_id_placeholder: "Na primer: 770000123"
+        password_label: Lozinka
+        password_placeholder: Vaša lozinka
+        s95_login_button: Prijava putem ID
+        telegram_widget_title: Prijava putem Telegram
+        telegram_widget_description: Ako vam način sa jednokratnom vezom iz nekog razloga ne odgovara, možete koristiti prijavu putem broja telefona (sa kog ste se registrovali u botu). Nakon potvrde zahteva od Telegram-a, moćete lako da se prijavite klikom na ovo dugme.
+      create:
+        invalid_s95_credentials: Neispravan ID ili lozinka. Proverite podatke i pokušajte ponovo.
     confirmations:
       new:
         title: Pošaljite uputstva za potvrdu e-mail
