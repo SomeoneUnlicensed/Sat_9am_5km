@@ -44,6 +44,26 @@
   </div>
 
   <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-kudos">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseKudos" aria-expanded="false" aria-controls="flush-collapseKudos">
+        <span class="badge text-light bg-primary me-3" id="kudos-counter"><%= @athlete.kudo_results.sum(:kudos_count) %></span>
+        <%= t('.kudos_received') %>
+      </button>
+    </h2>
+    <div id="flush-collapseKudos" class="accordion-collapse collapse" aria-labelledby="flush-kudos" data-bs-parent="#accordion-personal-statistics">
+      <div class="accordion-body">
+        <div class="d-flex justify-content-between">
+          <div>
+            <strong><%= t('.kudos_given') %>:</strong> <%= @athlete.kudos.count %>
+          </div>
+          <div>
+            <strong><%= t('.kudos_received') %>:</strong> <%= @athlete.kudo_results.sum(:kudos_count) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
     <h2 class="accordion-header" id="flush-followers">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFollowers" aria-expanded="false" aria-controls="flush-collapseFollowers">
         <span class="badge text-light bg-primary me-3" id="followers-counter"><%= @athlete.followers.size %></span>

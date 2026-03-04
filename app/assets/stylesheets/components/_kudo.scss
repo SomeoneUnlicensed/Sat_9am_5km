@@ -1,0 +1,52 @@
+.kudo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 8px;
+  border-radius: 12px;
+  min-width: 40px;
+  min-height: 40px;
+  justify-content: center;
+
+  &:hover:not(:disabled) {
+    background-color: #f3f4f6;
+    color: #4b5563;
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.6;
+  }
+
+  &--active {
+    color: #f97316;
+    .kudo-icon {
+      animation: pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+  }
+
+  .kudo-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .kudo-count {
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+.kudo-form {
+  display: inline;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}

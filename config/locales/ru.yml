@@ -920,6 +920,8 @@ ru:
         event: Мероприятие
       friends: Друзья
       followers: В друзьях
+      kudos_received: Пятюни получено
+      kudos_given: Пятюни отдано
       duels: Дуэли
       duels_description: Сравнивайте свои результаты с друзьями на одинаковых забегах
       view_duels: Посмотреть дуэли

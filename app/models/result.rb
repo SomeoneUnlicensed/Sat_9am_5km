@@ -5,6 +5,8 @@ class Result < ApplicationRecord
 
   belongs_to :activity, touch: true
   belongs_to :athlete, optional: true, touch: true
+  has_many :kudos, dependent: :destroy
+  has_many :kudo_givers, through: :kudos, source: :athlete
 
   validates :position, numericality: { greater_than_or_equal_to: 1, only_integer: true }
   validates :athlete_id, uniqueness: { scope: :activity_id }, allow_nil: true

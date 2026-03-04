@@ -1,0 +1,25 @@
+<% if current_user&.athlete %>
+  <% kudo = result.kudos.find_by(athlete: current_user.athlete) %>
+  <% if kudo %>
+    <%= button_to result_kudo_path(result), method: :delete, class: "kudo-btn kudo-btn--active", title: "Забрать пятюню", form: { class: "kudo-form" } do %>
+      <svg class="kudo-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+      <span class="kudo-count"><%= result.kudos_count %></span>
+    <% end %>
+  <% else %>
+    <%= button_to result_kudo_path(result), method: :post, class: "kudo-btn", title: "Дать пятюню!", form: { class: "kudo-form" } do %>
+      <svg class="kudo-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+      <span class="kudo-count"><%= result.kudos_count %></span>
+    <% end %>
+  <% end %>
+<% else %>
+  <button class="kudo-btn" title="Войдите, чтобы раздавать пятюни друзьям!" disabled>
+    <svg class="kudo-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+    </svg>
+    <span class="kudo-count"><%= result.kudos_count %></span>
+  </button>
+<% end %>

@@ -44,6 +44,9 @@ Rails.application.routes.draw do
   end
   resources :volunteers, only: %i[new edit create update destroy]
   resources :badges, only: %i[index show]
+  resources :results, only: [] do
+    resource :kudo, only: %i[create destroy]
+  end
   resources :clubs, param: :slug, only: %i[index show] do
     get :search, on: :collection
     get :last_week, on: :member, path: 'last-week'

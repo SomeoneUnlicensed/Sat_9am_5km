@@ -15,6 +15,7 @@ $carousel-control-hover-opacity: 1;
 @import "bootstrap";
 @import "font-awesome";
 @import "phone_screen";
+@import "components/kudo";
 @import "web/*";
 
 // Dark theme primary color override
@@ -132,12 +133,15 @@ body {
       margin-right: 8px;
       text-decoration: none;
     }
+
     a:hover {
       opacity: 0.85;
     }
+
     a:last-child {
       margin-right: 0;
     }
+
     i {
       font-size: 2em;
 
@@ -151,6 +155,7 @@ body {
     .social-links {
       order: 2;
     }
+
     .footer-text {
       order: 3;
     }
@@ -164,6 +169,7 @@ nav.pagination {
 
     text-decoration: none;
   }
+
   span {
     @extend .position-relative;
 
@@ -172,15 +178,19 @@ nav.pagination {
     border-color: var(--bs-border-color);
     padding: 4px 8px;
   }
+
   span:hover {
     background-color: var(--bs-tertiary-bg);
   }
+
   .current {
     background-color: var(--bs-tertiary-bg);
   }
+
   span:first-child {
     border-radius: 5px 0 0 5px;
   }
+
   span:last-child {
     border-radius: 0 5px 5px 0;
     border-width: 1px;
@@ -202,7 +212,9 @@ h6 {
 }
 
 .table.table-centered {
-  th, tr {
+
+  th,
+  tr {
     @extend .text-center;
   }
 }
@@ -226,7 +238,8 @@ th.sortable {
     i.fa {
       display: none;
 
-      &.fa-caret-up, &.fa-caret-down {
+      &.fa-caret-up,
+      &.fa-caret-down {
         display: inherit;
       }
     }
@@ -303,16 +316,21 @@ th.sortable {
   flex-wrap: nowrap;
   scrollbar-width: none;
   -ms-overflow-style: none;
+
   &::-webkit-scrollbar {
     display: none;
   }
 }
 
 @keyframes blink {
-  0%, 50% {
+
+  0%,
+  50% {
     opacity: 1;
   }
-  51%, 100% {
+
+  51%,
+  100% {
     opacity: 0.3;
   }
 }

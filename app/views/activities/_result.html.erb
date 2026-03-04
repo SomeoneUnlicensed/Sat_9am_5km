@@ -38,4 +38,9 @@
     <% club = result.athlete&.club %>
     <%= link_to club.name, club_path(club.slug) if club %>
   </td>
+  <td class="align-middle text-center">
+    <div id="kudo_result_<%= result.id %>">
+      <%= render 'kudos/button', result: result %>
+    </div>
+  </td>
 <% end %>

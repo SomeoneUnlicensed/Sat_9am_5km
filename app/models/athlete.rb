@@ -65,6 +65,8 @@ class Athlete < ApplicationRecord
   has_many :inverse_friendships, class_name: 'Friendship', foreign_key: :friend_id, dependent: :destroy,
                                  inverse_of: :friend
   has_many :followers, through: :inverse_friendships, source: :athlete
+  has_many :kudos, dependent: :destroy
+  has_many :kudo_results, through: :kudos, source: :result
 
   validates :parkrun_code,
             uniqueness: true,
