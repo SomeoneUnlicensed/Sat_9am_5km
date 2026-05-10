@@ -41,6 +41,9 @@ sr:
       permission:
         one: ovlašćenje
         other: Ovlašćenja
+      wallet_pass_registration:
+        one: Apple Wallet registracija
+        other: Apple Wallet registracije
       user:
         one: korisnik
         few: korisnika
@@ -65,6 +68,15 @@ sr:
         emergency_contact_name: ime
         emergency_contact_phone: telefon
         created_at: kreiran
+      wallet_pass_registration:
+        athlete: sportista
+        device_library_identifier: ID uređaja
+        push_token: Push token
+        serial_number: serijski broj
+        pass_type_identifier: tip propusnice
+        auth_token: autorizacioni token
+        created_at: datum instalacije
+        updated_at: ažurirano
       permission:
         event: događaj
         user: korisnik

@@ -41,6 +41,9 @@ ru:
       permission:
         one: полномочия
         other: Полномочия
+      wallet_pass_registration:
+        one: регистрация Apple Wallet
+        other: Регистрации Apple Wallet
       user:
         one: пользователь
         few: пользователя
@@ -63,6 +66,15 @@ ru:
         emergency_contact_name: имя
         emergency_contact_phone: телефон
         created_at: создан
+      wallet_pass_registration:
+        athlete: участник
+        device_library_identifier: ID устройства
+        push_token: Push токен
+        serial_number: серийный номер
+        pass_type_identifier: тип пропуска
+        auth_token: токен авторизации
+        created_at: дата установки
+        updated_at: обновлено
       permission:
         event: мероприятие
         user: пользователь

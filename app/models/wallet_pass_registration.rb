@@ -12,6 +12,14 @@ class WalletPassRegistration < ApplicationRecord
 
   before_validation :generate_auth_token, on: :create
 
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[athlete_id auth_token created_at device_library_identifier id pass_type_identifier push_token serial_number updated_at]
+  end
+
+  def self.ransackable_associations(_auth_object = nil)
+    %w[athlete]
+  end
+
   private
 
   def generate_auth_token

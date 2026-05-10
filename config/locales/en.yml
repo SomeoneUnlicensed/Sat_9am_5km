@@ -37,6 +37,9 @@ en:
       permission:
         one: permission
         other: Permissions
+      wallet_pass_registration:
+        one: Apple Wallet registration
+        other: Apple Wallet registrations
       user:
         one: user
         other: Users
@@ -57,6 +60,15 @@ en:
         emergency_contact_name: name
         emergency_contact_phone: phone
         created_at: created
+      wallet_pass_registration:
+        athlete: participant
+        device_library_identifier: Device ID
+        push_token: Push token
+        serial_number: serial number
+        pass_type_identifier: pass type
+        auth_token: auth token
+        created_at: installation date
+        updated_at: updated
       permission:
         event: event
         user: user
