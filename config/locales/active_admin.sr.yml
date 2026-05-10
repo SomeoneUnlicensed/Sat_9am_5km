@@ -1,5 +1,16 @@
 sr:
   admin:
+    statistics:
+      menu: Statistika
+      title: Opšta statistika sistema
+      locations: Lokacija
+      countries: Država
+      participants: Učesnika
+      wallet: Apple Wallet
+      matrix: Matrica posećenosti
+      earlier: Ranije
+      later: Kasnije
+      location: Lokacija
     athletes:
       results:
         title: Svi rezultati

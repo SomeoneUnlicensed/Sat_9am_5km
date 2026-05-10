@@ -1,5 +1,16 @@
 en:
   admin:
+    statistics:
+      menu: Statistics
+      title: Global System Statistics
+      locations: Locations
+      countries: Countries
+      participants: Participants
+      wallet: Apple Wallet
+      matrix: Attendance Matrix
+      earlier: Earlier
+      later: Later
+      location: Location
     athletes:
       results:
         title: All Results

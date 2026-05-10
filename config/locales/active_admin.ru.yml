@@ -1,5 +1,16 @@
 ru:
   admin:
+    statistics:
+      menu: Статистика
+      title: Общая статистика системы
+      locations: Локаций
+      countries: Стран
+      participants: Участников
+      wallet: Apple Wallet
+      matrix: Матрица посещаемости
+      earlier: Раньше
+      later: Позже
+      location: Локация
     athletes:
       results:
         title: Все результаты
